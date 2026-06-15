@@ -27,7 +27,7 @@ body {
   --radius-l: 8px;
   --input-radius: 5px;
   --tab-radius-active: 6px 6px 0 0;
-  --checkbox-radius: 4px;
+  --checkbox-radius: 2px;
   --toggle-radius: 999px;
   --slider-thumb-radius: 999px;
 
@@ -58,7 +58,10 @@ body {
   --code-size: 0.92em;
   --code-white-space: pre-wrap;
   --link-decoration: none;
+  --link-decoration-hover: underline;
+  --link-decoration-thickness: 1px;
   --link-external-decoration: none;
+  --link-external-decoration-hover: underline;
   --tag-padding-x: 0.45em;
   --tag-padding-y: 0.18em;
   --tag-radius: 5px;
@@ -650,6 +653,22 @@ body {
 .cm-highlight {
   border-radius: 3px;
   padding: 0 0.12em;
+}
+
+.markdown-rendered a,
+.cm-hmd-internal-link,
+.cm-link,
+.markdown-rendered u,
+.markdown-rendered ins,
+.cm-underline {
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: var(--link-decoration-thickness);
+}
+
+.markdown-rendered a:hover,
+.cm-hmd-internal-link:hover,
+.cm-link:hover {
+  text-decoration-line: underline;
 }
 
 .markdown-rendered code,
