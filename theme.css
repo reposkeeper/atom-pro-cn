@@ -13,13 +13,19 @@ body {
   --line-height-tight: 1.55;
   --p-spacing: 0.95em;
   --heading-spacing: 1.7em;
-  --list-spacing: 0.46em;
-  --list-indent: 1.85em;
-  --list-indent-editing: 1.85em;
-  --list-indent-source: 1.85em;
+  --list-spacing: 0.22em;
+  --list-indent: 1.72em;
+  --list-indent-editing: 1.72em;
+  --list-indent-source: 1.72em;
+  --list-padding-inline-start: 0.62em;
+  --cn-list-block-margin-start: 0.58em;
+  --cn-list-block-margin-end: 0.78em;
+  --cn-list-item-padding-block: 0.16em;
+  --cn-list-nested-padding-block: 0.1em;
+  --cn-list-marker-gap: 0.34rem;
   --list-bullet-size: 0.36em;
   --list-bullet-radius: 50%;
-  --list-bullet-end-padding: 1.35em;
+  --list-bullet-end-padding: 1.08em;
   --list-numbered-style: decimal;
 
   --radius-s: 4px;
@@ -605,6 +611,10 @@ body {
   line-height: var(--line-height-normal);
 }
 
+.markdown-source-view.mod-cm6.is-live-preview {
+  --list-padding-inline-start: 0.62em;
+}
+
 .markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-codeblock) {
   padding-top: 0.02em;
   padding-bottom: 0.02em;
@@ -617,8 +627,8 @@ body {
 }
 
 .markdown-source-view.mod-cm6 .HyperMD-list-line {
-  padding-top: calc(var(--list-spacing) * 0.18);
-  padding-bottom: calc(var(--list-spacing) * 0.18);
+  padding-top: var(--cn-list-item-padding-block);
+  padding-bottom: var(--cn-list-item-padding-block);
 }
 
 .markdown-source-view.mod-cm6 .HyperMD-list-line-2,
@@ -626,8 +636,17 @@ body {
 .markdown-source-view.mod-cm6 .HyperMD-list-line-4,
 .markdown-source-view.mod-cm6 .HyperMD-list-line-5,
 .markdown-source-view.mod-cm6 .HyperMD-list-line-6 {
-  padding-top: calc(var(--list-spacing) * 0.12);
-  padding-bottom: calc(var(--list-spacing) * 0.12);
+  padding-top: var(--cn-list-nested-padding-block);
+  padding-bottom: var(--cn-list-nested-padding-block);
+}
+
+.cm-formatting.cm-formatting-list .list-bullet {
+  padding-inline-end: var(--cn-list-marker-gap);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-task-line {
+  padding-top: var(--cn-list-item-padding-block);
+  padding-bottom: var(--cn-list-item-padding-block);
 }
 
 .markdown-source-view.mod-cm6 .HyperMD-quote {
@@ -648,28 +667,36 @@ body {
 
 .markdown-rendered ul,
 .markdown-rendered ol {
-  margin-block-start: 0.68em;
-  margin-block-end: 0.9em;
+  margin-block-start: var(--cn-list-block-margin-start);
+  margin-block-end: var(--cn-list-block-margin-end);
+  padding-inline-start: var(--list-indent);
 }
 
 .markdown-rendered li {
-  padding-top: calc(var(--list-spacing) * 0.28);
-  padding-bottom: calc(var(--list-spacing) * 0.28);
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-top: var(--cn-list-item-padding-block);
+  padding-bottom: var(--cn-list-item-padding-block);
 }
 
 .markdown-rendered li > p {
-  margin-block-end: 0.42em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.markdown-rendered li > p + p {
+  margin-block-start: 0.38em;
 }
 
 .markdown-rendered li > ul,
 .markdown-rendered li > ol {
-  margin-block-start: 0.32em;
-  margin-block-end: 0.32em;
+  margin-block-start: 0.24em;
+  margin-block-end: 0.24em;
 }
 
 .markdown-rendered li li {
-  padding-top: calc(var(--list-spacing) * 0.18);
-  padding-bottom: calc(var(--list-spacing) * 0.18);
+  padding-top: var(--cn-list-nested-padding-block);
+  padding-bottom: var(--cn-list-nested-padding-block);
 }
 
 .markdown-rendered blockquote {
